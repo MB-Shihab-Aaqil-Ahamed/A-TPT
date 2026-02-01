@@ -580,7 +580,7 @@ if __name__ == '__main__':
 
     # added args for a-tpt --------------------------------
     parser.add_argument('--lambda_term' , type=float, default=0.0, help='lambda for a-tpt')
-    parser.add_argument('--tau_term' , type=float, default=0.99999, help='tau for angle clamp')
+    parser.add_argument('--tau_term' , type=float, default=0.99999, help='tau for angular constraint')
     parser.add_argument('--run_type' , type=str, default='baseline_tpt', choices=['baseline', 'tpt', 'tpt_atpt', 'tpt_ts'])
     parser.add_argument('--two_step', action='store_true', default=False, help='two step training')
     parser.add_argument('--I_augmix', action='store_true', default=False, help='augmix for I')
