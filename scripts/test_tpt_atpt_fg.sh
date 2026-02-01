@@ -10,6 +10,6 @@ run_type=tpt_atpt
 lambda_term=80
 tau_term=0.99999
 
-python ./tpt_classification.py ${data_root} --test_sets ${testsets} \
+python ./atpt_classification.py ${data_root} --test_sets ${testsets} \
 -a ${arch} -b ${bs} --gpu 0 \
 --tpt --ctx_init ${ctx_init} --run_type ${run_type} --lambda_term ${lambda_term} --tau_term ${tau_term} \

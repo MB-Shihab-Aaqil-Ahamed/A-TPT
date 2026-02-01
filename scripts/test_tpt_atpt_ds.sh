@@ -10,6 +10,6 @@ run_type=tpt_atpt
 lambda_term=10
 tau_term=0.99999
 
-python ./atpt_classification.py ${data_root} --test_sets ${testsets} \
+python ./tpt_classification.py ${data_root} --test_sets ${testsets} \
 -a ${arch} -b ${bs} --gpu 0 \
 --tpt --ctx_init ${ctx_init} --run_type ${run_type} --I_augmix --lambda_term ${lambda_term} --tau_term ${tau_term} \

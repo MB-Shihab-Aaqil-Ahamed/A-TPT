@@ -36,9 +36,100 @@ import ipdb
 import math
 import pickle
 
+import os
+import matplotlib.pyplot as plt
+
 model_names = sorted(name for name in models.__dict__
     if name.islower() and not name.startswith("__")
     and callable(models.__dict__[name]))
+
+def ReliabiltyDiagram(bin_acc, n_bins=20, title="None"):
+    
+    delta = 1.0 / n_bins
+    x = np.arange(0, 1, delta)
+    mid = np.linspace(delta / 2, 1 - delta / 2, n_bins)
+    error = np.abs(np.subtract(mid, bin_acc))
+
+    plt.rcParams["font.family"] = "serif"
+    #size and axis limits
+    plt.figure(figsize=(6,6))
+    plt.xlim(0,1)
+    plt.ylim(0,1)
+    #plot grid
+    plt.grid(color='tab:grey', linestyle=(0, (1, 5)), linewidth=1,zorder=0)
+    #plot bars and identity line
+    plt.bar(x, bin_acc, color = 'b', width=delta,align='edge',edgecolor = 'k',label='Outputs',zorder=5)
+    plt.bar(x, error, bottom=np.minimum(bin_acc,mid), color = 'mistyrose', alpha=0.5, width=delta,align='edge',edgecolor = 'r',hatch='///',label='Gap',zorder=10)
+    ident = [0.0, 1.0]
+    plt.plot(ident,ident,linestyle='--',color='tab:grey',zorder=15)
+    #labels and legend
+    plt.ylabel('Accuracy',fontsize=13)
+    plt.xlabel('Confidence',fontsize=13)
+    plt.xticks(np.arange(0, 1.1, 0.1))
+    plt.yticks(np.arange(0, 1.1, 0.1))
+    plt.legend(loc='upper left',framealpha=1.0,fontsize='medium')
+    if title is not None:
+        plt.title(title,fontsize=16)
+    plt.tight_layout()
+
+    if not os.path.exists('figures'):
+        os.makedirs('figures')
+    
+    plot_filename = os.path.join('figures', f"reliability_diagram_{args.test_sets}.png")
+    plt.savefig(plot_filename)
+    print(f"plot saved to {plot_filename}")
+
+    return plt
+
+def ConfidenceHistogram(confidences, accuracies, n_bins=20, title=None):
+    n = len(confidences)
+    w = np.ones(n) / n  # Equal weight for each sample
+
+    # Create the histogram plot
+    plt.rcParams["font.family"] = "serif"
+    plt.figure(figsize=(6, 6))
+    plt.xlim(0, 1)
+    plt.ylim(0, 1)
+    plt.xticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0], ['0.0', '0.2', '0.4', '0.6', '0.8', '1.0'])
+    plt.yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0], ['0.0', '0.2', '0.4', '0.6', '0.8', '1.0'])
+    plt.grid(color='tab:grey', linestyle=(0, (1, 5)), linewidth=1, zorder=0)
+
+    # Plot histogram for confidence values
+    plt.hist(confidences, bins=n_bins, weights=w, color='b', range=(0.0, 1.0), edgecolor='k')
+
+    # Calculate average accuracy and confidence
+    acc = np.mean(accuracies)
+    conf = np.mean(confidences)
+
+    # Plot vertical dashed lines for average accuracy and average confidence
+    plt.axvline(x=acc, color='tab:grey', linestyle='--', linewidth=3)
+    plt.axvline(x=conf, color='tab:grey', linestyle='--', linewidth=3)
+
+    # Add text labels for accuracy and average confidence with adjusted positioning
+    if acc > conf:
+        plt.text(acc + 0.03, 0.9, 'Accuracy', rotation=90, fontsize=11)
+        plt.text(conf - 0.07, 0.9, 'Avg. Confidence', rotation=90, fontsize=11)
+    else:
+        plt.text(acc - 0.07, 0.9, 'Accuracy', rotation=90, fontsize=11)
+        plt.text(conf + 0.03, 0.9, 'Avg. Confidence', rotation=90, fontsize=11)
+
+    # Add labels for axes
+    plt.ylabel('% of Samples', fontsize=13)
+    plt.xlabel('Confidence', fontsize=13)
+    plt.tight_layout()
+
+    if title is not None:
+        plt.title(title, fontsize=16)
+
+    # Save plot to 'plots' directory
+    if not os.path.exists('figures'):
+        os.makedirs('figures')
+
+    plot_filename = os.path.join('figures', f"confidence_histogram_{args.test_sets}.png")
+    plt.savefig(plot_filename)
+    print(f"plot saved to {plot_filename}")
+
+    return plt
 
 def ECE_Loss(num_bins, predictions, confidences, correct):
     #ipdb.set_trace()
@@ -93,8 +184,12 @@ def Calculator(result_dict):
 
     print('acc: ', acc*100)
     print('ece: ', ece_data[0]*100)
+
+    ReliabiltyDiagram(ece_data[1], n_bins=20, title=f"Reliability Diagram A-TPT-{args.test_sets}")
+
+    ConfidenceHistogram(list_max_confidence, list_correct, n_bins=20, title=f"Confidence Histogram A-TPT-{args.test_sets}")
           
-    return 
+    return acc*100, ece_data[0]*100
 
 
 def select_confident_samples(logits, top):
