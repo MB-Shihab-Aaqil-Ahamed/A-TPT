@@ -67,7 +67,7 @@ Prepare the datasets based on the following GitHub repository [TPT](https://gith
 
 ## Running Experiments
 
-In each of the bash script .sh files, change the {data_root} accordingly. And, you can change the CLIP pretrained backbone by modifying the {arch} parameter to either ‘RN50’ or ‘ViT-B/16’. Also, you can change baselines by modifying the {run_type} to either ‘tpt’ or ‘tpt_ts’ or ‘atpt’.
+In each of the bash script .sh files, change the {data_root} accordingly. And, you can change the CLIP pretrained backbone by modifying the {arch} parameter to either ‘RN50’ or ‘ViT-B/16’. Also, you can change baselines by modifying the {run_type} to either ‘tpt’ or ‘tpt_ts’ or ‘tpt_atpt’.
 
 1. Baseline (CLIP)
 ```bash
