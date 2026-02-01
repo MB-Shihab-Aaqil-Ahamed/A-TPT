@@ -6,6 +6,7 @@
 - **October 29, 2025**: Paper is available on arXiv! 📄
 
 For more details, please feel free to check out our:
+
 [![Paper](https://img.shields.io/badge/Paper-Published-blue)](https://arxiv.org/pdf/2510.26441.pdf) [![arXiv](https://img.shields.io/badge/arXiv-2503.12096-b31b1b.svg)](https://arxiv.org/abs/2510.26441) [![Project Page](https://img.shields.io/badge/%F0%9F%94%97-Project%20Page-blue)](https://mb-shihab-aaqil-ahamed.github.io/A-TPT/)
 
 This repository provides the official PyTorch implementation of our ICLR 2026 paper:
@@ -26,8 +27,8 @@ Our major contributions are summarized as follows:
 
 ## Comparison with C-TPT and O-TPT
 
-  <img src="figures/radar_plot.png" width="45%" />
-  <img src="figures/sketch.png" width="45%" /> 
+| <img src="figures/radar_plot.png" width="100%" /> | <img src="figures/sketch.png" width="100%" /> |
+|:---:|:---:|
 
 ## Installation
 ```bash
@@ -168,18 +169,17 @@ The command line argument {dataset} can be specified as follows: for fine-graine
 
 | Method | Food | DTD | FLW | Air | UCF | Cars | SUN |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **C-TPT** | <img src="figures/C-TPT-Food.png" width="150"> | <img src="figures/C-TPT-DTD.png" width="150"> | <img src="figures/C-TPT-Flower.png" width="150"> | <img src="figures/C-TPT-Aircraft.png" width="150"> | <img src="figures/C-TPT-UCF.png" width="150"> | <img src="figures/C-TPT-Cars.png" width="150"> | <img src="figures/C-TPT-SUN.png" width="150"> |
-| **O-TPT** | <img src="figures/O-TPT-Food.png" width="150"> | <img src="figures/O-TPT-DTD.png" width="150"> | <img src="figures/O-TPT-Flower.png" width="150"> | <img src="figures/O-TPT-Aircraft.png" width="150"> | <img src="figures/O-TPT-UCF.png" width="150"> | <img src="figures/O-TPT-Cars.png" width="150"> | <img src="figures/O-TPT-SUN.png" width="150"> |
-| **A-TPT** | <img src="figures/A-TPT-Food.png" width="150"> | <img src="figures/A-TPT-DTD.png" width="150"> | <img src="figures/A-TPT-Flower.png" width="150"> | <img src="figures/A-TPT-Aircraft.png" width="150"> | <img src="figures/A-TPT-UCF.png" width="150"> | <img src="figures/A-TPT-Cars.png" width="150"> | <img src="figures/A-TPT-SUN.png" width="150"> |
+| **C-TPT** | <img src="figures/C-TPT-Food.png" width="100%"> | <img src="figures/C-TPT-DTD.png" width="100%"> | <img src="figures/C-TPT-Flower.png" width="100%"> | <img src="figures/C-TPT-Aircraft.png" width="100%"> | <img src="figures/C-TPT-UCF.png" width="100%"> | <img src="figures/C-TPT-Cars.png" width="100%"> | <img src="figures/C-TPT-SUN.png" width="100%"> |
+| **O-TPT** | <img src="figures/O-TPT-Food.png" width="100%"> | <img src="figures/O-TPT-DTD.png" width="100%"> | <img src="figures/O-TPT-Flower.png" width="100%"> | <img src="figures/O-TPT-Aircraft.png" width="100%"> | <img src="figures/O-TPT-UCF.png" width="100%"> | <img src="figures/O-TPT-Cars.png" width="100%"> | <img src="figures/O-TPT-SUN.png" width="100%"> |
+| **A-TPT** | <img src="figures/A-TPT-Food.png" width="100%"> | <img src="figures/A-TPT-DTD.png" width="100%"> | <img src="figures/A-TPT-Flower.png" width="100%"> | <img src="figures/A-TPT-Aircraft.png" width="100%"> | <img src="figures/A-TPT-UCF.png" width="100%"> | <img src="figures/A-TPT-Cars.png" width="100%"> | <img src="figures/A-TPT-SUN.png" width="100%"> |
 
 ### CLIP RN50 Backbone
 
 | Method | Air | UCF | Cars | SUN |
 |:---:|:---:|:---:|:---:|:---:|
-| **C-TPT** | <img src="figures/C-TPT-RN-Aircraft.png" width="150"> | <img src="figures/C-TPT-RN-UCF.png" width="150"> | <img src="figures/C-TPT-RN-Cars.png" width="150"> | <img src="figures/C-TPT-RN-SUN.png" width="150"> |
-| **O-TPT** | <img src="figures/O-TPT-RN-Aircraft.png" width="150"> | <img src="figures/O-TPT-RN-UCF.png" width="150"> | <img src="figures/C-TPT-RN-Cars.png" width="150"> | <img src="figures/O-TPT-RN-SUN.png" width="150"> |
-| **A-TPT** | <img src="figures/A-TPT-RN-Aircraft.png" width="150"> | <img src="figures/A-TPT-RN-UCF.png" width="150"> | <img src="figures/A-TPT-RN-Cars.png" width="150"> | <img src="figures/A-TPT-RN-SUN.png" width="150"> |
-
+| **C-TPT** | <img src="figures/C-TPT-RN-Aircraft.png" width="100%"> | <img src="figures/C-TPT-RN-UCF.png" width="100%"> | <img src="figures/C-TPT-RN-Cars.png" width="100%"> | <img src="figures/C-TPT-RN-SUN.png" width="100%"> |
+| **O-TPT** | <img src="figures/O-TPT-RN-Aircraft.png" width="100%"> | <img src="figures/O-TPT-RN-UCF.png" width="100%"> | <img src="figures/C-TPT-RN-Cars.png" width="100%"> | <img src="figures/O-TPT-RN-SUN.png" width="100%"> |
+| **A-TPT** | <img src="figures/A-TPT-RN-Aircraft.png" width="100%"> | <img src="figures/A-TPT-RN-UCF.png" width="100%"> | <img src="figures/A-TPT-RN-Cars.png" width="100%"> | <img src="figures/A-TPT-RN-SUN.png" width="100%"> |
 
 ## Acknowledgement
 
