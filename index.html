@@ -1,949 +1,869 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html>
 <head>
-
   <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Source Themes Academic 4.4.0">
 
-  <style>
-  a.specialwhitebold:link{
-    color: #FFFDD0;
-    font-weight: bold;
-  }
-    a.specialwhitebold:visited{
-    color: #FFFDD0;
-    font-weight: bold;
-  }
-    a.specialwhitebold:active{
-    color: #FFFDD0;
-    font-weight: bold;
-  }
-    a.specialwhitebold:hover{
-    color: #F3E5AB;
-    font-weight: bold;
-  }
 
-  a.specialwhite:link{
-    color: #FFFDD0;
-  }
-    a.specialwhite:visited{
-    color: #FFFDD0;
-  }
-    a.specialwhite:active{
-    color: #FFFDD0;
-  }
-    a.specialwhite:hover{
-    color: #F3E5AB;
-  }
+  <title>A-TPT: Angular Diversity Calibration Properties for Test-Time Prompt Tuning of Vision-Language Models</title>
+<!--   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+<!--   <link rel="icon" type="image/x-icon" href=""> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
 
-  a.specialeffects:link{
-    color: #050505;
-  }
-    a.specialeffects:visited{
-    color: #050505;
-  }
-    a.specialeffects:active{
-    color: #050505;
-  }
-    a.specialeffects:hover{
-    color: #1F51FF;
-  }
-	
-  a.specialgray:link{
-    color: gray;
-  }
-    a.specialgray:visited{
-    color: gray;
-  }
-    a.specialgray:active{
-    color: gray;
-  }
-    a.specialgray:hover{
-    color: #1F51FF;
-  }	
-  </style>
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="static/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
 
-  <meta name="author" content="Shihab Aaqil Ahamed">
-  <meta name="description" content="Undergraduate Student">
-  <link rel="alternate" hreflang="en-us" href="https://mb-shihab-aaqil-ahamed.github.io/">
-  <meta name="theme-color" content="#2962ff">
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
-
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cutive+Mono|Lora:400,700|Roboto:400,700&display=swap">
-  <link rel="stylesheet" href="/css/academic.min.a37180a901f566adcde30f087191d2c2.css">
-
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-107711380-1', 'auto');
-      ga('require', 'eventTracker');
-      ga('require', 'outboundLinkTracker');
-      ga('require', 'urlChangeTracker');
-      ga('send', 'pageview');
-    </script>
-    
-    <script async src="https://www.google-analytics.com/analytics.js"></script>
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
-    
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Shihab Aaqil Ahamed">
-  
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icon.png">
-  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
-  <link rel="canonical" href="https://mb-shihab-aaqil-ahamed.github.io/">
-
-  <title>Shihab Aaqil Ahamed</title>
-
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
 </head>
+<body>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" class="page-wrapper  ">
 
-  <script src="/js/wowchemy-init.min.36bd468b4a66839fa971a4072975fa26.js"></script>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">A-TPT: Angular Diversity Calibration Properties for Test-Time Prompt Tuning of Vision-Language Models
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://mb-shihab-aaqil-ahamed.github.io/" target="_blank">Shihab Aaqil Ahamed</a> <sup>1, 2</sup> ,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=vuOC9RYAAAAJ&hl=en/" target="_blank">Udaya S.K.P. Miriya Thanthrige</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://ranga.staff.uom.lk/" target="_blank">Ranga Rodrigo</a> <sup>1</sup></span>,
+                  <span class="author-block">
+                    <a href="https://m-haris-khan.com/" target="_blank">Muhammad Haris Khan</a><sup>2</sup></span>
+                  </div>
 
-  <aside class="search-results" id="search">
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Department of Electronic and Telecommunication Engineering, Univerity of Moratuwa, Sri Lanka<br><sup>2</sup> 
+                    Mohamed bin Zayed Univerity of Artificial Intelligence, Abu Dhabi, UAE
+                    <br>The Fourteenth International Conference on Learning Representations, ICLR 2026</span>
+                  </div>
+                  <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+                  
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2510.26441/" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary PDF link -->
+  
+                    <!-- <span class="link-block">
+                      <a href="https://openaccess.thecvf.com/content/CVPR2023/supplemental/Pathiraja_Multiclass_Confidence_and_CVPR_2023_supplemental.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/MB-Shihab-Aaqil-Ahamed/A-TPT/" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                                           <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2510.26441/" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span>
+                </span>
+
+                
+                  <div class="logo-container" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+                    
+                    <a href="https://ent.uom.lk/" target="_blank">
+                    <img src="static/images/logo-entc.png" alt="ENTC Logo" style="height: 60px; margin: 10px 15px; background-color: #000; padding: 5px; border-radius: 5px;">
+                    </a>
+
+                    <a href="https://uom.lk/" target="_blank">
+                    <img src="static/images/logo-moratuwa.png" alt="UoM Logo" style="height: 60px; margin: 10px 15px; background-color: #B35B51; padding: 5px; border-radius: 5px;">
+                    </a>
+                    
+                    <a href="https://mbzuai.ac.ae/" target="_blank">
+                    <img src="static/images/logo-mbzuai.png" alt="MBZUAI Logo" style="height: 60px; margin: 10px 15px;">
+                    </a>
+
+                  </div>
+
+                <!-- ArXiv abstract Link -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%"> -->
+        <!-- Your video here -->
+        <!-- <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+      </h2>
+    </div>
+  </div>
+</section> -->
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+Test-time prompt tuning (TPT) has emerged as a promising technique for adapting large vision-language models (VLMs) to unseen tasks without relying on labeled data. However, the lack of dispersion between textual features can hurt calibration performance, which raises concerns about VLMs' reliability, trustworthiness, and safety. Current TPT approaches primarily focus on improving prompt calibration by either maximizing average textual feature dispersion or enforcing orthogonality constraints to encourage angular separation. However, these methods may not always have optimal angular separation between class-wise textual features, which implies overlooking the critical role of angular diversity. To address this, we propose A-TPT, a novel TPT framework that introduces angular diversity to encourage uniformity in the distribution of normalized textual features induced by corresponding learnable prompts. This uniformity is achieved by maximizing the minimum pairwise angular distance between features on the unit hypersphere. We show that our approach consistently surpasses state-of-the-art TPT methods in reducing the aggregate average calibration error while maintaining comparable accuracy through extensive experiments with various backbones on different datasets. Notably, our approach exhibits superior zero-shot calibration performance on natural distribution shifts and generalizes well to medical datasets. We provide extensive analyses, including theoretical aspects, to establish the grounding of A-TPT. These results highlight the potency of promoting angular diversity to achieve well-dispersed textual features, significantly improving VLM calibration during test-time adaptation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+  <!-- HIGHLIGHTS -->
+  <section class="section">
+  <!-- <section class="section" style="background-color:#efeff081"> -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">🔥 Contributions</h2>
+          <div class="content has-text-justified">
+            <ol type="1">
+              <li>  
+                We introduce a numerical optimization method, called A-TPT, for better calibration of
+test-time prompt tuning for VLMs. This resolves the suboptimal performance of existing
+leading calibration techniques for test-time prompt tuning.
+              </li>
+              <br>
+              <li>We introduce novel angular diversity that effectively promotes the diversity among textual
+features, thereby improving the calibration capabilities of VLMs when N &gt; |D| and
+N &lt; |D|. This is accomplished by maximizing the minimum pairwise angular distance
+between normalized textual features.
+              </li>
+              <br>
+              <li>We conduct extensive experiments to validate the generalizability of our approach on
+different datasets, including medical datasets, across various baselines. The results show
+that A-TPT surpasses state-of-the-art methods in calibration performance. We also provide
+thorough analyses, including theoretical aspects. Moreover, our approach provides superior
+calibration compared to the zero-shot CLIP model, which reveals improved calibration.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Angular Diversity (AD) vs. Expected Calibration Error (ECE)</h2>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column">
+            <img src="static/images/hard_prompt.png" alt="Hard Prompts" style="width: 100%; object-fit: contain; display: block; margin: auto;"/>
+            <h2 class="subtitle has-text-centered">
+              Hard prompts
+            </h2>
+          </div>
+          <div class="column">
+            <img src="static/images/tuned_prompt.png" alt="Tuned Prompts" style="width: 100%; object-fit: contain; display: block; margin: auto;"/>
+            <h2 class="subtitle has-text-centered">
+              Tuned prompts
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Angular Diversity Section -->
+
+
+<section class="sectiont">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Comparison with C-TPT and O-TPT</h2>
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column">
+            <img src="static/images/radar_plot.png" alt="Radar Plot" style="width: 100%; object-fit: contain; display: block; margin: auto;"/>
+          </div>
+          <div class="column">
+            <img src="static/images/sketch.png" alt="Hypersphere Optimization Sketch" style="width: 100%; object-fit: contain; display: block; margin: auto;"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Table Results -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    
+    <div class="content">
+      <h3 class="title is-4">Comparison on Fine-grained Datasets</h3>
+      <div class=                  "table-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth js-sort-table" id="results-finegrained">
+          <thead>
+            <tr>
+              <th class="no-sort" rowspan="2" style="vertical-align: middle;">Method</th>
+              <th class="no-sort" rowspan="2" style="vertical-align: middle;">Metric</th>
+              <th class="no-sort" colspan="11" style="text-align: center;">Datasets</th>
+              <th class="no-sort" rowspan="2" style="vertical-align: middle;">Average</th>
+            </tr>
+            <tr>
+              <th style="font-size: small;">ImageNet</th>
+              <th style="font-size: small;">DTD</th>
+              <th style="font-size: small;">Flowers102</th>
+              <th style="font-size: small;">Food101</th>
+              <th style="font-size: small;">SUN397</th>
+              <th style="font-size: small;">Aircrafts</th>
+              <th style="font-size: small;">OxfordPets</th>
+              <th style="font-size: small;">Caltech101</th>
+              <th style="font-size: small;">UCF101</th>
+              <th style="font-size: small;">EuroSAT</th>
+              <th style="font-size: small;">Stanford Cars</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- CLIP ViT-B/16 -->
+            <tr>
+                <td colspan="15" style="background-color: #f5f5f5;"><strong>CLIP ViT-B/16 (512-d)</strong></td>
+            </tr>
+            <tr>
+               <td rowspan="2" style="vertical-align: middle;">Baseline</td>
+               <td>Acc.</td>
+               <td>66.70</td><td>44.30</td><td>67.30</td><td>83.60</td><td>62.50</td><td>23.90</td><td>88.00</td><td>92.90</td><td>65.00</td><td>41.30</td><td>65.30</td><td>63.70</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>2.12</td><td>8.50</td><td>3.00</td><td>2.39</td><td>2.53</td><td>5.11</td><td>4.37</td><td>5.50</td><td>3.59</td><td>13.89</td><td>4.25</td><td>4.43</td>
+            </tr>
+            <tr>
+               <td rowspan="2" style="vertical-align: middle;">TPT</td>
+               <td>Acc.</td>
+               <td>69.00</td><td>46.70</td><td>69.00</td><td>84.70</td><td>64.50</td><td>23.40</td><td>87.10</td><td>93.80</td><td>67.30</td><td>42.40</td><td>66.30</td><td>65.00</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>10.60</td><td>21.20</td><td>13.50</td><td>3.98</td><td>11.30</td><td>16.80</td><td>5.77</td><td>4.51</td><td>2.54</td><td>13.20</td><td>5.16</td><td>11.60</td>
+            </tr>
+            <tr>
+               <td rowspan="2" style="vertical-align: middle;">C-TPT</td>
+               <td>Acc.</td>
+               <td>68.50</td><td>46.00</td><td>69.80</td><td>83.70</td><td>64.80</td><td>24.85</td><td>88.20</td><td>93.63</td><td>65.70</td><td>43.20</td><td>65.80</td><td>64.57</td>
+            </tr>
+             <tr>
+               <td>ECE</td>
+               <td>3.15</td><td>11.90</td><td>5.04</td><td>3.43</td><td>5.04</td><td>4.36</td><td>1.90</td><td>4.24</td><td>2.54</td><td>13.20</td><td>1.59</td><td>5.13</td>
+            </tr>
+             <tr>
+               <td rowspan="2" style="vertical-align: middle;">O-TPT</td>
+               <td>Acc.</td>
+               <td>67.33</td><td>45.68</td><td>70.07</td><td>84.13</td><td>64.23</td><td>23.64</td><td>87.95</td><td>93.95</td><td>64.16</td><td>42.84</td><td>64.53</td><td>64.41</td>
+            </tr>
+             <tr>
+               <td>ECE</td>
+               <td>1.96</td><td>7.88</td><td>3.87</td><td>1.46</td><td>4.93</td><td>3.68</td><td>1.90</td><td>3.80</td><td>2.34</td><td>12.98</td><td>1.78</td><td>4.23</td>
+            </tr>
+            <tr style="background-color: #ffdce5;">
+               <td rowspan="2" style="vertical-align: middle;"><strong>A-TPT (Ours)</strong></td>
+               <td><strong>Acc.</strong></td>
+               <td>67.70</td><td>45.51</td><td>69.22</td><td>83.64</td><td>66.04</td><td>23.76</td><td>88.33</td><td>93.87</td><td>66.16</td><td>44.06</td><td>65.78</td><td>64.92</td>
+            </tr>
+             <tr style="background-color: #ffdce5;">
+               <td><strong>ECE</strong></td>
+               <td>1.45</td><td>4.76</td><td>3.61</td><td>1.37</td><td>3.28</td><td>3.14</td><td>1.17</td><td>2.76</td><td>2.12</td><td>3.92</td><td>1.09</td><td><strong>2.61</strong></td>
+            </tr>
+             <!-- CLIP RN50 -->
+            <tr>
+                <td colspan="15" style="background-color: #f5f5f5;"><strong>CLIP RN50 (1024-d)</strong></td>
+            </tr>
+            <tr>
+               <td rowspan="2" style="vertical-align: middle;">Baseline</td>
+               <td>Acc.</td>
+               <td>58.10</td><td>40.00</td><td>61.00</td><td>74.00</td><td>58.60</td><td>15.60</td><td>83.80</td><td>85.80</td><td>58.40</td><td>23.70</td><td>55.70</td><td>55.90</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>2.09</td><td>9.91</td><td>3.19</td><td>3.11</td><td>3.54</td><td>6.45</td><td>5.91</td><td>4.33</td><td>3.05</td><td>15.40</td><td>4.70</td><td>5.61</td>
+            </tr>
+            <tr>
+               <td rowspan="2" style="vertical-align: middle;">TPT</td>
+               <td>Acc.</td>
+               <td>60.70</td><td>41.50</td><td>62.50</td><td>74.90</td><td>61.10</td><td>17.00</td><td>84.50</td><td>87.00</td><td>59.50</td><td>28.30</td><td>58.00</td><td>57.70</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>11.40</td><td>25.70</td><td>13.40</td><td>5.25</td><td>9.24</td><td>16.10</td><td>3.65</td><td>5.04</td><td>12.40</td><td>22.50</td><td>3.76</td><td>11.70</td>
+            </tr>
+            <tr>
+               <td rowspan="2" style="vertical-align: middle;">C-TPT</td>
+               <td>Acc.</td>
+               <td>60.20</td><td>42.20</td><td>65.20</td><td>74.70</td><td>61.00</td><td>17.00</td><td>84.10</td><td>86.90</td><td>59.70</td><td>27.80</td><td>56.50</td><td>57.75</td>
+            </tr>
+             <tr>
+               <td>ECE</td>
+               <td>3.01</td><td>19.80</td><td>4.14</td><td>1.86</td><td>2.93</td><td>10.70</td><td>2.77</td><td>2.07</td><td>3.83</td><td>15.10</td><td>1.94</td><td>6.19</td>
+            </tr>
+             <tr>
+               <td rowspan="2" style="vertical-align: middle;">O-TPT</td>
+               <td>Acc.</td>
+               <td>58.97</td><td>41.90</td><td>65.61</td><td>74.22</td><td>60.85</td><td>16.77</td><td>83.40</td><td>86.86</td><td>58.84</td><td>28.35</td><td>56.44</td><td>57.47</td>
+            </tr>
+             <tr>
+               <td>ECE</td>
+               <td>3.10</td><td>16.53</td><td>2.50</td><td>1.20</td><td>3.20</td><td>8.18</td><td>3.50</td><td>2.75</td><td>2.60</td><td>14.71</td><td>1.69</td><td>5.45</td>
+            </tr>
+            <tr style="background-color: #ffdce5;">
+               <td rowspan="2" style="vertical-align: middle;"><strong>A-TPT (Ours)</strong></td>
+               <td><strong>Acc.</strong></td>
+               <td>58.44</td><td>40.90</td><td>64.89</td><td>74.10</td><td>60.46</td><td>14.58</td><td>83.48</td><td>86.57</td><td>60.24</td><td>32.14</td><td>57.08</td><td>57.53</td>
+            </tr>
+             <tr style="background-color: #ffdce5;">
+               <td><strong>ECE</strong></td>
+               <td>2.49</td><td>6.41</td><td>2.39</td><td>1.11</td><td>2.90</td><td>6.14</td><td>2.47</td><td>1.98</td><td>2.34</td><td>2.51</td><td>1.38</td><td><strong>2.92</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <br>
+    
+    <h3 class="title is-4">Comparison on Natural Distribution Shift Datasets</h3>
+        <div class="table-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth js-sort-table" id="results-distshift">
+          <thead>
+            <tr>
+              <th rowspan="2" class="no-sort" style="vertical-align: middle;">Method</th>
+              <th rowspan="2" class="no-sort" style="vertical-align: middle;">Metric</th>
+              <th colspan="4" class="no-sort" style="text-align: center;">Datasets</th>
+              <th rowspan="2" class="no-sort" style="vertical-align: middle;">Average</th>
+            </tr>
+             <tr>
+              <th>ImageNet-A</th>
+              <th>ImageNet-V2</th>
+              <th>ImageNet-R</th>
+              <th>ImageNet-S</th>
+            </tr>
+          </thead>
+           <tbody>
+            <!-- CLIP ViT-B/16 -->
+             <tr>
+                <td colspan="7" style="background-color: #f5f5f5;"><strong>CLIP ViT-B/16 (512-d)</strong></td>
+            </tr>
+            <tr>
+               <td rowspan="2" style="vertical-align: middle;">Baseline</td>
+               <td>Acc.</td>
+               <td>47.80</td><td>60.80</td><td>74.00</td><td>46.10</td><td>57.20</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>8.61</td><td>3.01</td><td>3.58</td><td>4.95</td><td>5.04</td>
+            </tr>
+             <tr>
+               <td rowspan="2" style="vertical-align: middle;">TPT</td>
+               <td>Acc.</td>
+               <td>52.60</td><td>63.00</td><td>76.70</td><td>47.50</td><td>59.90</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>16.40</td><td>11.10</td><td>4.36</td><td>16.10</td><td>12.00</td>
+            </tr>
+             <tr>
+               <td rowspan="2" style="vertical-align: middle;">C-TPT</td>
+               <td>Acc.</td>
+               <td>51.60</td><td>62.70</td><td>76.00</td><td>47.90</td><td>59.60</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>8.16</td><td>6.23</td><td>1.54</td><td>7.35</td><td>5.82</td>
+            </tr>
+             <tr>
+               <td rowspan="2" style="vertical-align: middle;">O-TPT</td>
+               <td>Acc.</td>
+               <td>49.87</td><td>61.65</td><td>72.55</td><td>47.12</td><td>57.80</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>7.22</td><td>3.97</td><td>1.46</td><td>6.87</td><td>4.88</td>
+            </tr>
+             <tr style="background-color: #ffdce5;">
+               <td rowspan="2" style="vertical-align: middle;"><strong>A-TPT (Ours)</strong></td>
+               <td><strong>Acc.</strong></td>
+               <td>50.39</td><td>60.90</td><td>74.87</td><td>46.09</td><td>58.06</td>
+            </tr>
+            <tr style="background-color: #ffdce5;">
+               <td><strong>ECE</strong></td>
+               <td>6.45</td><td>2.96</td><td>1.39</td><td>4.87</td><td><strong>3.92</strong></td>
+            </tr>
+            <!-- CLIP RN50 -->
+            <tr>
+                <td colspan="7" style="background-color: #f5f5f5;"><strong>CLIP RN50 (1024-d)</strong></td>
+            </tr>
+             <tr>
+               <td rowspan="2" style="vertical-align: middle;">Baseline</td>
+               <td>Acc.</td>
+               <td>21.70</td><td>51.40</td><td>56.00</td><td>33.30</td><td>40.60</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>21.30</td><td>3.33</td><td>2.07</td><td>3.15</td><td>7.46</td>
+            </tr>
+             <tr>
+               <td rowspan="2" style="vertical-align: middle;">TPT</td>
+               <td>Acc.</td>
+               <td>25.20</td><td>54.60</td><td>58.90</td><td>35.10</td><td>43.50</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>31.00</td><td>13.10</td><td>9.18</td><td>13.70</td><td>16.70</td>
+            </tr>
+             <tr>
+               <td rowspan="2" style="vertical-align: middle;">C-TPT</td>
+               <td>Acc.</td>
+               <td>23.40</td><td>54.70</td><td>58.00</td><td>35.10</td><td>42.80</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>25.40</td><td>8.58</td><td>4.57</td><td>9.70</td><td>12.10</td>
+            </tr>
+             <tr>
+               <td rowspan="2" style="vertical-align: middle;">O-TPT</td>
+               <td>Acc.</td>
+               <td>23.07</td><td>53.11</td><td>54.47</td><td>33.98</td><td>41.16</td>
+            </tr>
+            <tr>
+               <td>ECE</td>
+               <td>24.56</td><td>3.87</td><td>4.47</td><td>5.85</td><td>9.69</td>
+            </tr>
+            <tr style="background-color: #ffdce5;">
+               <td rowspan="2" style="vertical-align: middle;"><strong>A-TPT (Ours)</strong></td>
+               <td><strong>Acc.</strong></td>
+               <td>21.66</td><td>51.48</td><td>55.78</td><td>33.37</td><td>40.57</td>
+            </tr>
+            <tr style="background-color: #ffdce5;">
+               <td><strong>ECE</strong></td>
+               <td>21.14</td><td>3.10</td><td>3.96</td><td>3.09</td><td><strong>7.82</strong></td>
+            </tr>
+           </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- Qualitative Results - Reliability Diagrams -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Qualitative Results - Reliability Diagrams</h2>
+    <div class="content has-text-centered">
+
+    <div class="content">
+      <h3 class="title is-4 has-text-left">CLIP ViT-B/16</h3>
+      
+      <!-- Row 1: C-TPT -->
+      <div class="columns is-centered is-variable is-1">
+        <div class="column">
+          <img src="static/images/C-TPT-Food.png" alt="C-TPT: Food101" style="width: 100%;">
+          <p class="is-size-7">C-TPT: Food101</p>
+        </div>
+        <div class="column">
+          <img src="static/images/C-TPT-DTD.png" alt="C-TPT: DTD" style="width: 100%;">
+          <p class="is-size-7">C-TPT: DTD</p>
+        </div>
+        <div class="column">
+          <img src="static/images/C-TPT-Flower.png" alt="C-TPT: Flower102" style="width: 100%;">
+          <p class="is-size-7">C-TPT: Flower102</p>
+        </div>
+        <div class="column">
+          <img src="static/images/C-TPT-Aircraft.png" alt="C-TPT: Aircraft" style="width: 100%;">
+          <p class="is-size-7">C-TPT: Aircraft</p>
+        </div>
+        <div class="column">
+          <img src="static/images/C-TPT-UCF.png" alt="C-TPT: UCF101" style="width: 100%;">
+          <p class="is-size-7">C-TPT: UCF101</p>
+        </div>
+        <div class="column">
+          <img src="static/images/C-TPT-Cars.png" alt="C-TPT: Stanford Cars" style="width: 100%;">
+          <p class="is-size-7">C-TPT: Stanford Cars</p>
+        </div>
+        <div class="column">
+          <img src="static/images/C-TPT-SUN.png" alt="C-TPT: SUN397" style="width: 100%;">
+          <p class="is-size-7">C-TPT: SUN397</p>
+        </div>
+      </div>
+
+      <!-- Row 2: O-TPT -->
+      <div class="columns is-centered is-variable is-1">
+        <div class="column">
+          <img src="static/images/O-TPT-Food.png" alt="O-TPT: Food101" style="width: 100%;">
+          <p class="is-size-7">O-TPT: Food101</p>
+        </div>
+        <div class="column">
+          <img src="static/images/O-TPT-DTD.png" alt="O-TPT: DTD" style="width: 100%;">
+          <p class="is-size-7">O-TPT: DTD</p>
+        </div>
+        <div class="column">
+          <img src="static/images/O-TPT-Flower.png" alt="O-TPT: Flower102" style="width: 100%;">
+          <p class="is-size-7">O-TPT: Flower102</p>
+        </div>
+        <div class="column">
+          <img src="static/images/O-TPT-Aircraft.png" alt="O-TPT: Aircraft" style="width: 100%;">
+          <p class="is-size-7">O-TPT: Aircraft</p>
+        </div>
+        <div class="column">
+          <img src="static/images/O-TPT-UCF.png" alt="O-TPT: UCF101" style="width: 100%;">
+          <p class="is-size-7">O-TPT: UCF101</p>
+        </div>
+        <div class="column">
+          <img src="static/images/O-TPT-Cars.png" alt="O-TPT: Stanford Cars" style="width: 100%;">
+          <p class="is-size-7">O-TPT: Stanford Cars</p>
+        </div>
+        <div class="column">
+          <img src="static/images/O-TPT-SUN.png" alt="O-TPT: SUN397" style="width: 100%;">
+          <p class="is-size-7">O-TPT: SUN397</p>
+        </div>
+      </div>
+
+      <!-- Row 3: A-TPT -->
+      <div class="columns is-centered is-variable is-1">
+        <div class="column">
+          <img src="static/images/A-TPT-Food.png" alt="A-TPT: Food101" style="width: 100%;">
+          <p class="is-size-7">A-TPT: Food101</p>
+        </div>
+        <div class="column">
+          <img src="static/images/A-TPT-DTD.png" alt="A-TPT: DTD" style="width: 100%;">
+          <p class="is-size-7">A-TPT: DTD</p>
+        </div>
+        <div class="column">
+          <img src="static/images/A-TPT-Flower.png" alt="A-TPT: Flower102" style="width: 100%;">
+          <p class="is-size-7">A-TPT: Flower102</p>
+        </div>
+        <div class="column">
+          <img src="static/images/A-TPT-Aircraft.png" alt="A-TPT: Aircraft" style="width: 100%;">
+          <p class="is-size-7">A-TPT: Aircraft</p>
+        </div>
+        <div class="column">
+          <img src="static/images/A-TPT-UCF.png" alt="A-TPT: UCF101" style="width: 100%;">
+          <p class="is-size-7">A-TPT: UCF101</p>
+        </div>
+        <div class="column">
+          <img src="static/images/A-TPT-Cars.png" alt="A-TPT: Stanford Cars" style="width: 100%;">
+          <p class="is-size-7">A-TPT: Stanford Cars</p>
+        </div>
+        <div class="column">
+          <img src="static/images/A-TPT-SUN.png" alt="A-TPT: SUN397" style="width: 100%;">
+          <p class="is-size-7">A-TPT: SUN397</p>
+        </div>
+      </div>
+
+      <hr style="margin: 3rem 0;">
+
+      <div class="content">
+      <h3 class="title is-4 has-text-left">CLIP RN50</h3>
+
+      <!-- Row 1: C-TPT (RN50) -->
+      <div class="columns is-centered is-variable is-1">
+        <div class="column">
+          <img src="static/images/C-TPT-RN-Aircraft.png" alt="C-TPT: Aircraft" style="width: 100%;">
+          <p class="is-size-7">C-TPT: Aircraft</p>
+        </div>
+        <div class="column">
+          <img src="static/images/C-TPT-RN-UCF.png" alt="C-TPT: UCF101" style="width: 100%;">
+          <p class="is-size-7">C-TPT: UCF101</p>
+        </div>
+        <div class="column">
+          <img src="static/images/C-TPT-RN-Cars.png" alt="C-TPT: Stanford Cars" style="width: 100%;">
+          <p class="is-size-7">C-TPT: Stanford Cars</p>
+        </div>
+        <div class="column">
+          <img src="static/images/C-TPT-RN-SUN.png" alt="C-TPT: SUN397" style="width: 100%;">
+          <p class="is-size-7">C-TPT: SUN397</p>
+        </div>
+      </div>
+
+      <!-- Row 2: O-TPT (RN50) -->
+      <div class="columns is-centered is-variable is-1">
+        <div class="column">
+          <img src="static/images/O-TPT-RN-Aircraft.png" alt="O-TPT: Aircraft" style="width: 100%;">
+          <p class="is-size-7">O-TPT: Aircraft</p>
+        </div>
+        <div class="column">
+          <img src="static/images/O-TPT-RN-UCF.png" alt="O-TPT: UCF101" style="width: 100%;">
+          <p class="is-size-7">O-TPT: UCF101</p>
+        </div>
+        <!-- Note: Using C-TPT image as placeholder if O-TPT doesn't exist, as per previous state -->
+        <div class="column">
+          <img src="static/images/O-TPT-RN-Cars.png" alt="O-TPT: Stanford Cars" style="width: 100%;" onerror="this.onerror=null;this.src='static/images/C-TPT-RN-Cars.png';">
+          <p class="is-size-7">O-TPT: Stanford Cars</p>
+        </div>
+        <div class="column">
+          <img src="static/images/O-TPT-RN-SUN.png" alt="O-TPT: SUN397" style="width: 100%;">
+          <p class="is-size-7">O-TPT: SUN397</p>
+        </div>
+      </div>
+
+      <!-- Row 3: A-TPT (RN50) -->
+      <div class="columns is-centered is-variable is-1">
+        <div class="column">
+          <img src="static/images/A-TPT-RN-Aircraft.png" alt="A-TPT: Aircraft" style="width: 100%;">
+          <p class="is-size-7">A-TPT: Aircraft</p>
+        </div>
+        <div class="column">
+          <img src="static/images/A-TPT-RN-UCF.png" alt="A-TPT: UCF101" style="width: 100%;">
+          <p class="is-size-7">A-TPT: UCF101</p>
+        </div>
+        <div class="column">
+          <img src="static/images/A-TPT-RN-Cars.png" alt="A-TPT: Stanford Cars" style="width: 100%;">
+          <p class="is-size-7">A-TPT: Stanford Cars</p>
+        </div>
+        <div class="column">
+          <img src="static/images/A-TPT-RN-SUN.png" alt="A-TPT: SUN397" style="width: 100%;">
+          <p class="is-size-7">A-TPT: SUN397</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Youtube video -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="container" style="text-align: center;">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <div class="publication-video">
+              <iframe src="https://www.youtube.com/embed/6zFrhJM-YsU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- End youtube video -->
+
+    <!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container" style="text-align: center;">
+      <h2 class="title is-3">Conference Poster</h2>
+      <img src="static/images/poster.png" alt="Conference Poster" style="width: 100%;">
+    </div>
+  </div>
+</section> -->
+
+<!--End paper poster -->
+
+  <!---Acknowledgment-->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h2 class="title is-3">Acknowledgements</h2>
+      <div class="content has-text-justified">
+        <p>
+The computational resources for this research were supported by the Accelerating Higher Education Expansion and Development (AHEAD) Operation Grant No. 6026-LK/8743-LK from the Ministry
+of Higher Education, Sri Lanka, funded by the World Bank and the National Research Council of Sri Lanka Grant No. 19-080.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Video carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%"> -->
+            <!-- Your video file here -->
+            <!-- <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%"> -->
+            <!-- Your video file here -->
+            <!-- <source src="static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\ -->
+            <!-- Your video file here -->
+            <!-- <source src="static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> --> 
+<!-- End video carousel -->
+
+
+
+
+
+
+
+
+
+<!--BibTex citation -->
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@InProceedings{Nagasinghe_2024_CVPR,
+        author    = {Nagasinghe, Kumaranage Ravindu Yasas and Zhou, Honglu and Gunawardhana, Malitha and Min,  Martin Renqiang and Harari,Daniel and Khan, Muhammad Haris},
+        title     = {KEPP: Why Not Use Your Textbook? Knowledge-Enhanced Procedure Planning of Instructional Videos},
+        booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+        month     = {June},
+        year      = {2024},
+        pages     = {19734-19743}
+    }</code></pre>
+    </div>
+</section> -->
+  
+    <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <p>If you find our work useful in your research, please consider citing us.</p>
+      <pre><code>@article{ahamed2025tpt,
+  title={A-TPT: Angular Diversity Calibration Properties for Test-Time Prompt Tuning of Vision-Language Models},
+  author={Ahamed, Shihab Aaqil and Thanthrige, Udaya SKP and Rodrigo, Ranga and Khan, Muhammad Haris},
+  journal={arXiv preprint arXiv:2510.26441},
+  year={2025}
+}
+    </code></pre>
+    </div>
+</section> -->
+<!--End BibTex citation -->
+
+
+  <section class="section" id="Contact">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Contact</h2>
+      <p>
+        If you have any questions, please feel free to reach out at <a href="mailto:shihabaaqilahamed@gmail.com">shihabaaqilahamed@gmail.com</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
   <div class="container">
-    <section class="search-header">
-      <div class="row no-gutters justify-content-between mb-3">
-        <div class="col-6">
-          <h1>Search</h1>
-        </div>
-        <div class="col-6 col-search-close">
-          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
-        </div>
-      </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <span class="site-footer-owner"><a href="https://github.com/MB-Shihab-Aaqil-Ahamed/A-TPT/">A-TPT</a> is maintained by <a href="https://github.com/MB-Shihab-Aaqil-Ahamed/">Shihab Aaqil Ahamed</a>.</span>
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
 
-      <div id="search-box">
-      
-        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
-        
-      </div>
-
-    </section>
-    <section class="section-search-results">
-
-      <div id="search-hits">
-        
-      </div>
-    </section>
-  </div>
-</aside>
-
-<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
-  <div class="container">
-    
-      <a class="navbar-brand" href="/">Shihab Aaqil Ahamed</a>
-      
-      <button type="button" class="navbar-toggler" data-toggle="collapse"
-              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span><i class="fas fa-bars"></i></span>
-      </button>
-
-    <div class="collapse navbar-collapse" id="navbar">
-      
-      <ul class="navbar-nav mr-auto">
-        
-        <li class="nav-item">
-          <a class="nav-link " href="/#about" data-target="#about"><span>Home</span></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#education" data-target="#education"><span>Education</span></a>
-        </li>
-          
-        <li class="nav-item">
-          <a class="nav-link " href="/#posts" data-target="#posts"><span>Posts</span></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="./publication"><span>Publications</span></a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link " href="./project"><span>Projects</span></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#contact" data-target="#contact"><span>Contact</span></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="/files/cv.pdf"><span>CV</span></a>
-        </li>
-
-      </ul>
-      <ul class="navbar-nav ml-auto">
-
-        <li class="nav-item">
-          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
-        
-        <li class="nav-item dropdown theme-dropdown">
-        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
-          <i class="fas fa-moon" aria-hidden="true"></i>
-        </a>
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item js-set-theme-light">
-            <span>Light</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-dark">
-            <span>Dark</span>
-          </a>
-          <a href="#" class="dropdown-item js-set-theme-auto">
-            <span>Automatic</span>
-          </a>
-        </div>
-      </li>
-        
-      </ul>
-
-    </div>
-  </div>
-</nav>
-
-<span class="js-widget-page d-none"></span>
-
-  <section id="about" class="home-section wg-about   "  >
-    <div class="container">
-
-<div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="person-email person-address">
-  <div class="col-12 col-lg-4">
-    <div id="profile">
-      
-      <img class="portrait" src="/authors/admin/avatar_hufba2f317f870ed87099ef0632e269810_238863_250x250_fill_q75_box_center.jpg" itemprop="image" alt="Avatar">
-
-      <div class="portrait-title">
-        <h2 itemprop="name">Shihab Aaqil Ahamed</h2>
-        <h3 itemprop="jobTitle">Undergraduate Student</h3>
-
-        <h3 itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
-          
-          <span itemprop="name"><a class="specialgray" href="https://uom.lk/">University of Moratuwa, Sri Lanka</a></span>
-          
-        </h3>
-        
-      </div>
-
-      <link itemprop="url" href="">
-
-      <ul class="network-icon" aria-hidden="true">
-  
-        <li>
-          <a itemprop="sameAs" href="mailto:ahamedmbsa.20@uom.lk" >
-            <i class="fas fa-envelope big-icon"></i>
-          </a>
-        </li>
-        
-        <li>
-          <a itemprop="sameAs" href="https://www.linkedin.com/in/mb-shihab-aaqil-ahamed-094508215/">
-            <i class="fab fa-linkedin big-icon"></i>
-          </a>
-        </li>
-        
-        <li>
-          <a itemprop="sameAs" href="https://github.com/MB-Shihab-Aaqil-Ahamed" target="_blank" rel="noopener">
-            <i class="fab fa-github big-icon"></i>
-          </a>
-        </li>
-        
-        <!--
-        <li>
-          <a itemprop="sameAs" href="" target="_blank" rel="noopener">
-            <i class="ai ai-google-scholar big-icon"></i>
-          </a>
-        </li>
-        -->
-        
-        <li>
-          <a itemprop="sameAs" href="/files/cv.pdf" >
-            <i class="ai ai-cv big-icon"></i>
-          </a>
-        </li>
-        
-      </ul>
-
-    </div>
-  </div>
-  <div class="col-12 col-lg-8" itemprop="description">
-
-    <h1>Welcome! 👋</h1>
-    <div class="article-style" itemprop="articleBody">
-    <p>I am a third year undergraduate student studying <a href="https://ent.uom.lk/" target=_blank rel=noopener>Electronic and Telecommunication Engineering</a>, <a href="https://uom.lk/math/under-graduate/" target=_blank rel=noopener>Minor in Mathematics</a> at the <a href="https://uom.lk/" target=_blank rel=noopener>University of Moratuwa</a>. Prior to that, obtained GCE. Advanced Level from <a href="https://zck.edupage.org/" target=_blank rel=noopener>Zahira College Kalmunai</a>. I achieved high distinctions in Physics, Chemistry, and Combined Mathematics. Z.Score: 2.5593, District Rank: 2 and Island Rank: 152(out of ∼ 35,000 candidates). I have a strong interest in Optimization, Machine Learning, Computer Vision, Deep Learning and Digital Signal Processing.</p>
-
-<p>On top of that, I am a big fan of cricket and chess.</p>
-
-    <div class="row">
-
-    <div class="col-md-4.5">
-      <h3>Interests</h3>
-      <ul class="ul-interests">
-        
-        <li>Optimization</li>
-        <li>Machine Learning</li>
-        <li>Federated Learning</li>
-        <li>Deep learning</li>
-        <li>Digital Signal Processing</li>
-          
-      </ul>
-    </div>
-    
-    <div class="col-md-7">
-        <div class="skills-column">
-          <h3>Technical Skills</h3>
-          
-          <ul class="skill-list">
-            <li>Languages: C, C++, Matlab, Overleaf LaTeX, Python</li>
-            <li>Developer Tools: Google Colab, Jupyter Notebook, PyCharm, VS Code</li>
-            <li>Version Control: Git, GitHub</li>
-            <li>Frameworks: PyTorch, TensorFlow, Keras</li>
-        </ul>
-      </div>
-    </div>
-    
-  </div>
-</div>
-
-    </div>
-  </section>
-
- <section id="education" class="home-section wg-education   "  >
-    <div class="container">
- 
-<div class="row">
-  <div class="col-12 col-lg-4 section-heading">
-    <h1>Education</h1>
-    
-  </div>
-  <div class="col-12 col-lg-8">
- 
-    <div class="row experience">
-      
-      <div class="col-auto text-center flex-column d-none d-sm-flex">
-        <div class="row h-50">
-          <div class="col ">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-        <div class="m-2">
-          <span class="badge badge-pill border exp-fill">&nbsp;</span>
-        </div>
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-      </div>
-      
-      <div class="col py-2">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title exp-title text-muted mt-0 mb-1">Specialized in Electronic and Telecommunication Engineering</h4>
-            <h4 class="card-title exp-title text-muted mt-0 mb-1"><a class="specialgray" href="https://ent.uom.lk/" target="_blank" rel="noopener">Department of Electronic and Telecommunication Engineering</a> - <a class="specialgray" href="https://uom.lk/" target="_blank" rel="noopener">University of Moratuwa</a></h4>
-
-            <div class="text-muted exp-meta">May 2022 – Present <span class="middot-divider"></span> <span>CGPA 3.51/4.0</span> <span class="middot-divider"></span><span>Moratuwa, Sri Lanka</span></div>
-            <!--
-            <div class="text-muted exp-meta">Supervisor: <a class="specialgray" href="https://perso.telecom-paristech.fr/ofercoq/" target="_blank" rel="noopener">Olivier Fercoq</a></div>
-            -->
         </div>
       </div>
     </div>
-</div>
-    
-    <div class="row experience">
-      
-      <div class="col-auto text-center flex-column d-none d-sm-flex">
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-        <div class="m-2">
-          <span class="badge badge-pill border exp-fill">&nbsp;</span>
-        </div>
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-      </div>
-      
-      <div class="col py-2">
-        <div class="card">
-          <div class="card-body">
-	    <h4 class="card-title exp-title text-muted mt-0 mb-1">Bachelor of Science (Honors) in Engineering</h4>
-            <h4 class="card-title exp-title text-muted mt-0 mb-1"><a class="specialgray" href="https://mipt.ru/english/edu/phystechschools/psami" target="_blank" rel="noopener">University of Moratuwa</a></h4>
-            <div class="text-muted exp-meta">June 2021 – Present <span class="middot-divider"></span> <span>CGPA 3.51/4.0 </span> <span class="middot-divider"></span><span>Moratuwa, Sri Lanka</span></div>
-            <!--
-            <div class="text-muted exp-meta">Supervisor: <a class="specialgray" href="http://strijov.com/papers_en.html" target="_blank" rel="noopener">Vadim Strijov</a></div>
-            -->
-        </div>
-      </div>
-    </div>
-</div>
-
-    
-    <div class="row experience">
-      
-      <div class="col-auto text-center flex-column d-none d-sm-flex">
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-        <div class="m-2">
-          <span class="badge badge-pill border ">&nbsp;</span>
-        </div>
-        <div class="row h-50">
-          <div class="col ">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-      </div>
-          
-      <div class="col py-2">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title exp-title text-muted mt-0 mb-1">General Certified Examination Advanced Level</h4>
-            <h4 class="card-title exp-title text-muted mt-0 mb-1"><a class="specialgray" href="https://zck.edupage.org/" target="_blank" rel="noopener">Zahira College Kalmunai</a></h4>         
-            
-            <div class="text-muted exp-meta">December 2016 - August 2019 <span class="middot-divider"></span><span>Grade: 3A$^+$(High Distinction)</span><span class="middot-divider"></span><span>Kalmunai, Sri Lanka</span></div>
-            
-      </div>
-    </div>
   </div>
-</div>
-    <!--       
-    <div class="row experience">
-      
-      <div class="col-auto text-center flex-column d-none d-sm-flex">
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-        <div class="m-2">
-          <span class="badge badge-pill border ">&nbsp;</span>
-        </div>
-        <div class="row h-50">
-          <div class="col ">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-      </div>
-      
-         
-      <div class="col py-2">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title exp-title text-muted mt-0 mb-1">General Certified Examination Ordinary Level</h4>
-            <h4 class="card-title exp-title text-muted mt-0 mb-1"><a class="specialgray" href="https://zck.edupage.org/" target="_blank" rel="noopener">Zahira College Kalmunai</a></h4>         
-            
-            <div class="text-muted exp-meta">January 2011 - December 2016 <span class="middot-divider"></span><span>Grade: 7A, 2B</span><span class="middot-divider"></span><span>Kalmunai, Sri Lanka</span></div>
-      -->      
-      </div>
-    </div>
-  </div>
-</div>
-
-    </div>
-  </section>
-  
-  <!--
-  <section id="publications" class="home-section wg-pages   "  >
-    <div class="container">
-    
-<div class="row">
-  <div class="col-12 col-lg-4 section-heading">
-    <h1>Recent Papers</h1>
-    
-  </div>
-  <div class="col-12 col-lg-8">
-
-    <div class="alert alert-note">
-  <div>
-    Quickly discover relevant content by <a class="specialeffects" href="https://mb-shihab-aaqil-ahamed.github.io/publication/" style="color: #303030" target="_blank">filtering publications</a>.
-  </div>
-</div>
-
-    <div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/publication/21_fednl/"  itemprop="url">FedNL: Making Newton-Type Methods Applicable to Federated Learning</a>
-    </h3>
-
-    <div class="article-style" itemprop="articleBody">
-      We propose a family of <a href="/publication/21_fednl">Federated Newton Learn</a> (FedNL) methods, which we believe is a marked step in the direction of making second-order methods applicable to FL. We perform a variety of numerical experiments that show that our FedNL methods have state-of-the-art communication complexity when compared to key baselines.
-    </div>
-
-    <div class="stream-meta article-metadata">
-
-      <div itemprop="author">
-        
-  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/mher-safaryan/">Mher Safaryan</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/mb-shihab-aaqil-ahamed/">Shihab Aaqil Ahamed</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/xun-qian/">Xun Qian</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/peter-richtárik/">Peter Richtárik</span>
-
-      </div>
-      
-    </div>
-
-    
-    <div class="btn-links">
-
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/files/publications/FedNL/FedNL.pdf" target="_blank" rel="noopener">
-  PDF
-</a>
-      
-<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
-        data-filename="/publication/21_fednl/cite.bib">
-  Cite
-</button>
-
-  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org/abs/2106.02969" target="_blank" rel="noopener">
-    arXiv
-  </a>
-
-    </div>
-  </div>
-  <div class="ml-3">
-  </div>
-</div>
-
-<div class="media stream-item" itemscope itemtype="http://schema.org/ScholarlyArticle">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/publication/21_mn/"  itemprop="url">Distributed third Order Methods with Fast Rates and Compressed Communication</a>
-    </h3>
-
-    <div class="article-style" itemprop="articleBody">
-      We develop several new communication-efficient second-order methods for distributed optimization. Our results are supported with experimental results on real datasets, and show several orders of magnitude improvement on baseline and state-of-the-art methods in terms of communication complexity.
-    </div>
-
-    <div class="stream-meta article-metadata">
-
-      <div itemprop="author">
-
-  <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/mb-shihab-aaqil-ahamed/">Shihab Aaqil Ahamed</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/xun-qian/">Xun Qian</a></span>, <span itemprop="author name" itemtype="http://schema.org/Person"><a href="/authors/peter-richtárik/">Peter Richtárik</span>
-
-      </div>
-    </div>
-
-    <div class="btn-links">
-
-<a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/files/publications/NEWTON-LEARN/NEWTON-LEARN.pdf" target="_blank" rel="noopener">
-  PDF
-</a>
-
-<button type="button" class="btn btn-outline-primary my-1 mr-1 btn-sm js-cite-modal"
-        data-filename="/publication/21_mn/cite.bib">
-  Cite
-</button>
-
-  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://arxiv.org/abs/2102.07158" target="_blank" rel="noopener">
-    
-    arXiv
-  </a>
-
-      <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/files/posters/NEWTON-LEARN/Newton_Learn_Poster.pdf" target="_blank" rel="noopener">
-    
-    Poster
-  </a>
-  
-    </div>
-
-  </div>
-  <div class="ml-3">
-    
-    
-  </div>
-</div>
-
-    <div class="see-all">
-      <a class="specialeffects" href="/publication/" style="color: #303030">
-        See all publications
-        <i class="fas fa-angle-right"></i>
-      </a>
-    </div>
-    
-
-  </div>
-</div>
-
-    </div>
-
--->
-  </section>
-
-  <section id="posts" class="home-section wg-pages   "  >
-    <div class="container">
-      
-
-<div class="row">
-  <div class="col-12 col-lg-4 section-heading">
-    <h1>Recent Posts</h1>
-    
-  </div>
-  <div class="col-12 col-lg-8">
-
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="/files/images/1.jpg" style="border-radius: 15px; opacity=0.1;">
-      <div class="carousel-caption d-none d-md-block">
-    	<h2><a class="specialwhitebold" href="/post/22_november"></a></h2>
-    	<p><font style="color:#FFFDD0">
-        </font></p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="/files/images/2.jpg" style="border-radius: 15px; opacity=0.5;" alt="Start of new academic year">
-      <div class="carousel-caption d-none d-md-block">
-    	<h2><a class="specialwhitebold" href="/post/22_start_of_year/">My Exciting Start at University of Moratuwa!</a> </h2>
-    	<p><font style="color:#FFFDD0">
-        </font></p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="/files/images/4.jpg" style="border-radius: 15px; opacity=0.1;" alt="New paper out">
-      <div class="carousel-caption d-none d-md-block">
-    	<h2><a class="specialwhitebold" href="/post/22_3pc/">Selected to specialize in Electronic and Telecommunication Engineering</a></h2>
-    	<p><font style="color:#FFFDD0">Great news! I am thrilled to announce that I have been selected to specialize in <a class="specialwhite" href="https://uom.lk/">Electronic and Telecommunication Engineering</a> at the prestigious <a class="specialwhite" href="https://uom.lk/">University of Moratuwa, Sri Lanka</a>. My outstanding performance in the first semester examination has earned me this incredible opportunity, and I couldn't be more excited about it.
-        </font></p>
-     </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="/files/images/1.jpg" style="border-radius: 15px; opacity=0.1;" alt="One paper was accepted to ICML 2022">
-      <div class="carousel-caption d-none d-md-block">
-    	<h2><a class="specialwhitebold" href="/post/22_icml/">My Exciting Start at University of Moratuwa!</a></h2>
-    	<p><font style="color:#FFFDD0">Exciting news! I've officially started my academic journey at the <a class="specialwhite" href="https://uom.lk/">University of Moratuwa, Sri Lanka</a>. With its outstanding reputation for academic excellence, groundbreaking research, and top-notch facilities, choosing to pursue my degree here was a no-brainer. Stay tuned for updates on my journey!
-        </font></p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="/files/images/2.jpg" style="border-radius: 15px; opacity=0.1;" alt="Internship at MLO Lab, EPFL">
-      <div class="carousel-caption d-none d-md-block">
-    	<h2><a class="specialwhitebold" href="https://uom.lk/">Accepted to University of Moratuwa</a></h2>
-    	<p><font style="color:#FFFDD0">I have been accepted to  pursue a Bachelor of Science (Honors) in Engineering Degree! at the <a class="specialwhite" href="https://uom.lk/">University of Moratuwa, Sri Lanka</a> to pursue a  I couldn't be more thrilled to have this opportunity to learn from some of the most knowledgeable and experienced professors in the field.
-        </font></p>
-      </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-<!--<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/22_november/"  itemprop="url">Recent news</a>
-    </h3> 
-    <div class="article-style" itemprop="articleBody">
-     <p>Bonjour! I am happy to announce that our <a class="specialeffects" href="/publication/22_3pc/">recent paper</a> was accepted to NeurIPS workshop <a class="specialeffects" href="https://order-up-ml.github.io/">HOO 2022: Order up! The Benefits of Higher-Order Optimization in Machine Learning.</a> Besides, <a class="specialeffects" href="/publication/22_ada3pc/">new paper</a> on adaptive compression for Federated Learning has been just published on arXiv.</p>
-
-    </div>
- 
-    <div class="stream-meta article-metadata">
-<meta content="2021-09-10 00:00:00 &#43;0300 MSK" itemprop="datePublished">
-<meta content="2021-09-10 02:12:06 &#43;0300 MSK" itemprop="dateModified">
-
-<div class="article-metadata">
-  <span class="article-date">
-          Last updated on
-
-    <time>November 5, 2022</time>
-  </span>
-  <span class="middot-divider"></span>
-  <a href="/post/22_november/#disqus_thread"></a>
-</div>  
-    </div>
-  </div>
-  <div class="ml-3">
-  </div>
-</div>
-
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/22_start_of_year/"  itemprop="url">Start of new academic year</a>
-    </h3> 
-    <div class="article-style" itemprop="articleBody">
-     <p>I am starting my third year of Master at University of Moratuwa. This year my Master program is based on Data Science program of Ecole Polytechnique.</p>
-
-    </div>
- 
-    <div class="stream-meta article-metadata">
-<meta content="2021-09-10 00:00:00 &#43;0300 MSK" itemprop="datePublished">
-<meta content="2021-09-10 02:12:06 &#43;0300 MSK" itemprop="dateModified">
-
-<div class="article-metadata">
-  <span class="article-date">
-          Last updated on
-
-    <time>September 8, 2022</time>
-  </span>
-  <span class="middot-divider"></span>
-  <a href="/post/22_start_of_year/#disqus_thread"></a>
-</div>  
-    </div>
-  </div>
-  <div class="ml-3">
-  </div>
-</div>
-
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/22_3pc/"  itemprop="url">New paper out</a>
-    </h3> 
-    <div class="article-style" itemprop="articleBody">
-     <p>In our <a class="specialeffects" href="/publication/22_3pc/">new paper</a> we prove that a class of so called Three Point Compressors can be applied on Newton method.  This result opens up a wide variety of communication strategies, such as a combination of contractive compression and lazy aggregation, available to our disposal to compress prohibitively costly curvature information. 
-</p>
-
-    </div>
- 
-    <div class="stream-meta article-metadata">
-<meta content="2021-09-10 00:00:00 &#43;0300 MSK" itemprop="datePublished">
-<meta content="2021-09-10 02:12:06 &#43;0300 MSK" itemprop="dateModified">
-
-<div class="article-metadata">
-  <span class="article-date">
-          Last updated on
-
-    <time>June 9, 2022</time>
-  </span>
-  <span class="middot-divider"></span>
-  <a href="/post/22_3pc/#disqus_thread"></a>
-</div>  
-    </div>
-  </div>
-  <div class="ml-3">
-  </div>
-</div>
-
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/22_icml/"  itemprop="url">One paper was accepted to ICML 2022</a>
-    </h3> 
-    <div class="article-style" itemprop="articleBody">
-     <p>I am very proud to announce that our <a class="specialeffects" href="/publication/21_fednl/">FedNL</a> paper was accepted to <a class="specialeffects" href="https://icml.cc/Conferences/2022/AcceptedPapersInitial">39th International Conference on Machine Learning (ICML 2022)</a>. 
-</p>
-
-    </div>
- 
-    <div class="stream-meta article-metadata">
-<meta content="2021-09-10 00:00:00 &#43;0300 MSK" itemprop="datePublished">
-<meta content="2021-09-10 02:12:06 &#43;0300 MSK" itemprop="dateModified">
-
-<div class="article-metadata">
-  <span class="article-date">
-          Last updated on
-
-    <time>May 16, 2022</time>
-  </span>
-  <span class="middot-divider"></span>
-  <a href="/post/22_icml/#disqus_thread"></a>
-</div>  
-    </div>
-  </div>
-  <div class="ml-3">
-  </div>
-</div>
-
-<div class="media stream-item" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0" itemprop="name">
-      <a href="/post/22_epfl/"  itemprop="url">Internship at MLO Lab, EPFL</a>
-    </h3> 
-    <div class="article-style" itemprop="articleBody">
-     <p>Currenly I am in Lausanne. Here I have started my internship at <a class="specialeffects" href="https://www.epfl.ch/labs/mlo/">Machine Learning and Optimization Lab</a>, EPFL run by Prof. <a class="specialeffects" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>. I will work under the supervision of postdoctoral fellow <a class="specialeffects" href="https://www.di.ens.fr/hadrien.hendrikx/">Hadrien Hendrikx</a> and Prof. <a class="specialeffects" href="https://people.epfl.ch/martin.jaggi">Martin Jaggi</a>. 
-<p>
-
-    </div>
- 
-    <div class="stream-meta article-metadata">
-<meta content="2021-09-10 00:00:00 &#43;0300 MSK" itemprop="datePublished">
-<meta content="2021-09-10 02:12:06 &#43;0300 MSK" itemprop="dateModified">
-
-<div class="article-metadata">
-  <span class="article-date">
-          Last updated on
-
-    <time>April 1, 2022</time>
-  </span>
-  <span class="middot-divider"></span>
-  <a href="/post/22_epfl/#disqus_thread"></a>
-</div>  
-    </div>
-  </div>
-  <div class="ml-3">
-  </div>
-</div>
--->
-
-    <div class="see-all">
-      <a href="/post/">
-        See all posts
-        <i class="fas fa-angle-right"></i>
-      </a>
-    </div>
-    
-  </div>
-</div>
-
-    </div>
-  </section>
-  
-  <section id="contact" class="home-section wg-contact   "  >
-    <div class="container">
-      
-<div class="row contact-widget">
-  <div class="col-12 col-lg-4 section-heading">
-    <h1>Contact</h1>
-    
-  </div>
-  <div class="col-12 col-lg-8">
-    
-    <ul class="fa-ul" itemscope>
-
-      <li>
-        <i class="fa-li fas fa-envelope fa-2x" aria-hidden="true"></i>
-        <span id="person-email" itemprop="email"><a href="mailto:ahamedmbsa.20@uom.lk">ahamedmbsa.20@uom.lk</a></span>
-      </li>
-	
-     <!--<li>
-        <i class="fa-li fab fa-telegram fa-2x" aria-hidden="true"></i>
-        <span id="person-telegram" itemprop="telegram"><a class="specialeffects" href="https://telegram.me/rustemio10">@rustemio10</a></span>
-      </li> -->
-
-      <li>
-        <i class="fa-li fas fa-map-marker fa-2x" aria-hidden="true"></i>
-        <span id="person-address" itemprop="address">Kalmunai, Sri Lanka</span>
-      </li>
-      
-    </ul>
-
-  </div>
-</div>
-
-    </div>
-  </section>
-
-    <script src="/js/mathjax-config.js"></script>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
-
-    <script id="dsq-count-scr" src="https://mb-shihab-aaqil-ahamed.disqus.com/count.js" async></script>
-
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    <script>
-      const search_index_filename = "/index.json";
-      const i18n = {
-        'placeholder': "Search...",
-        'results': "results found",
-        'no_results': "No results found"
-      };
-      const content_type = {
-        'post': "Posts",
-        'project': "Projects",
-        'publication' : "Publications",
-        'talk' : "Talks"
-        };
-    </script>
-
-    <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
-        </div>
-      </div>
-      </div>
-    </script>
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
-
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
-  
-  <div class="container">
-    <footer class="site-footer">
-  
-  <p class="powered-by">
-    &copy; 2023 Shihab Aaqil Ahamed &middot; 
-
-    Powered by the
-    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
-    
-    <span class="float-right" aria-hidden="true">
-      <a href="#" id="back_to_top">
-        <span class="button_icon">
-          <i class="fas fa-chevron-up fa-2x"></i>
-        </span>
-      </a>
-    </span>
-    
-  </p>
 </footer>
 
-  </div>
+<!-- Statcounter tracking code -->
   
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Cite</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <pre><code class="tex hljs"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> Copy
-        </a>
-        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> Download
-        </a>
-        <div id="modal-error"></div>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
-    <script src="/en/js/wowchemy.min.0c9630012d75078aa7a4e385916d5345.js"></script>
-    <script src="/en/js/wowchemy.min.ca72b29051859be0d23e83ef763d442f.js"></script>
+    <!-- End of Statcounter Code -->
 
-</body>
-</html>
+  </body>
+  </html>
