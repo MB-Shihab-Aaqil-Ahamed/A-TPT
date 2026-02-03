@@ -265,8 +265,7 @@ def test_time_tuning(model, inputs, optimizer, scaler, args):
             ang_constraint_norm = -torch.acos(ang_constraint)
             ang_constraint_norm_mean = ang_constraint_norm.mean()
             
-            ang_constraint_norm_mean_training = ang_constraint_norm_mean
-            loss += (-lambda_* ang_constraint_norm_mean_training)
+            loss += (-lambda_* ang_constraint_norm_mean)
 
         if args.run_type not in ['baseline', 'baseline_cocoop', 'baseline_coop', 'baseline_ts']:
             optimizer.zero_grad()
