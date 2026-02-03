@@ -260,11 +260,13 @@ def test_time_tuning(model, inputs, optimizer, scaler, args):
 
             Wwt_ = Wwt_ - 2. * torch.diag(torch.diag(Wwt_))
 
-            ang_norm = -torch.acos(Wwt_.max(dim=1)[0].clamp(-tau_, tau_))
-            ang_norm_mean = ang_norm.mean()
-
-            ang_norm_mean_training = ang_norm_mean
-            loss += (-lambda_* ang_norm_mean_training)
+            ang = Wwt_.max(dim=1)[0]
+            ang_constraint = ang.clamp(-tau_, tau_)
+            ang_constraint_norm = -torch.acos(ang_constraint)
+            ang_constraint_norm_mean = ang_constraint_norm.mean()
+            
+            ang_constraint_norm_mean_training = ang_constraint_norm_mean
+            loss += (-lambda_* ang_constraint_norm_mean_training)
 
         if args.run_type not in ['baseline', 'baseline_cocoop', 'baseline_coop', 'baseline_ts']:
             optimizer.zero_grad()

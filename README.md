@@ -65,7 +65,7 @@ We evaluate our method (A-TPT) on fine-grained and natural distribution shift da
 
 Prepare the datasets based on the following GitHub repository [TPT](https://github.com/azshue/TPT).
 
-## Running Experiments
+## Experiments
 
 In each of the bash script .sh files, change the {data_root} accordingly. And, you can change the CLIP pretrained backbone by modifying the {arch} parameter to either ‘RN50’ or ‘ViT-B/16’. Also, you can change baselines by modifying the {run_type} to either ‘tpt’ or ‘tpt_ts’ or ‘tpt_atpt’.
 
@@ -94,7 +94,7 @@ bash scripts/test_tpt_atpt_fg.sh {dataset}
 bash scripts/test_tpt_atpt_ds.sh {dataset}
 ```
 
-The command line argument {dataset} can be specified as follows: for fine-grained classification datasets, ‘I’, ‘DTD’, ‘Flower102’, ‘Food101’, ‘Cars’, ‘SUN397’, ‘Aircraft’, ‘Pets’, ‘Caltech101’, ‘UCF101’, or ‘eurosat’, and for datasets with natural distribution shifta, ‘V2’, ‘A’, ‘R’, or ‘K’.
+The command line argument {dataset} can be specified as follows: for fine-grained classification datasets, ‘I’, ‘DTD’, ‘Flower102’, ‘Food101’, ‘Cars’, ‘SUN397’, ‘Aircraft’, ‘Pets’, ‘Caltech101’, ‘UCF101’, or ‘eurosat’, and for datasets with natural distribution shifts, ‘V2’, ‘A’, ‘R’, or ‘K’.
 
 ## Results
 

@@ -326,14 +326,16 @@ class ClipTestTimeTuning(nn.Module):
 
             Wwt_ = Wwt_ - 2. * torch.diag(torch.diag(Wwt_))
 
-            ang_norm = -torch.acos(Wwt_.max(dim=1)[0].clamp(-tau_, tau_))
-            ang_norm_mean = ang_norm.mean()
+            ang = Wwt_.max(dim=1)[0]
+            ang_constraint = ang.clamp(-tau_, tau_)
+            ang_constraint_norm = -torch.acos(ang_constraint)
+            ang_constraint_norm_mean = ang_constraint_norm.mean()
             
             #for saving to csv file
-            self.ang_norm_mean = ang_norm_mean.item()
+            self.ang_constraint_norm_mean = ang_constraint_norm_mean.item()
             
             #for training
-            self.ang_norm_mean_training = ang_norm_mean
+            self.ang_constraint_norm_mean_training = ang_constraint_norm_mean
         
         #-----------------------------------------------------
 

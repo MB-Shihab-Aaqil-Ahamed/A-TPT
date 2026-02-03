@@ -252,7 +252,7 @@ def test_time_tuning(model, inputs, optimizer, scaler, args):
                 single_output = model(args.image)
 
             lambda_ = args.lambda_term
-            loss += (lambda_* model.ang_norm_mean_training)
+            loss += (lambda_* model.ang_constraint_norm_mean_training)
 
         if args.run_type not in ['baseline', 'baseline_cocoop', 'baseline_coop', 'baseline_ts']:
             optimizer.zero_grad()
@@ -568,6 +568,7 @@ if __name__ == '__main__':
 
     # added args for c-tpt --------------------------------
     parser.add_argument('--lambda_term' , type=float, default=0.0, help='lambda for c-tpt')
+    parser.add_argument('--tau_term' , type=float, default=0.99999, help='tau for angular constraint')
     parser.add_argument('--run_type' , type=str, default='baseline_tpt', choices=['baseline', 'tpt', 'tpt_atpt', 'tpt_ts'])
     parser.add_argument('--two_step', action='store_true', default=False, help='two step training')
     parser.add_argument('--I_augmix', action='store_true', default=False, help='augmix for I')
