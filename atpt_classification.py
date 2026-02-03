@@ -254,6 +254,7 @@ def test_time_tuning(model, inputs, optimizer, scaler, args):
 
             lambda_ = args.lambda_term
             tau_ = args.tau_term
+            
             W = model.get_text_features()
             W_ = F.normalize(W, p=2, dim=1)
             Wwt_ = torch.matmul(W_, W_.t())

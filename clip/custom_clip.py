@@ -318,9 +318,9 @@ class ClipTestTimeTuning(nn.Module):
         
         #[a-tpt] --------------------------------------------
         if self.ang_norm_cal:
+            tau_ = 0.99999
+
             W = text_features
-            tau_ = 0.999999
-            
             W_ = F.normalize(W, p=2, dim=1)
             Wwt_ = torch.matmul(W_, W_.t())
 
@@ -331,10 +331,10 @@ class ClipTestTimeTuning(nn.Module):
             ang_constraint_norm = -torch.acos(ang_constraint)
             ang_constraint_norm_mean = ang_constraint_norm.mean()
             
-            #for saving to csv file
+            # for saving to csv file
             self.ang_constraint_norm_mean = ang_constraint_norm_mean.item()
             
-            #for training
+            # for training
             self.ang_constraint_norm_mean_training = ang_constraint_norm_mean
         
         #-----------------------------------------------------
