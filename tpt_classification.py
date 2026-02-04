@@ -252,7 +252,7 @@ def test_time_tuning(model, inputs, optimizer, scaler, args):
                 single_output = model(args.image)
 
             lambda_ = args.lambda_term
-            loss += (lambda_* model.ang_constraint_norm_mean_training)
+            loss += (lambda_* model.min_ang_norm_mean_training)
 
         if args.run_type not in ['baseline', 'baseline_cocoop', 'baseline_coop', 'baseline_ts']:
             optimizer.zero_grad()
