@@ -194,7 +194,7 @@ If you find our work, this repository useful in your research, please consider g
 ```bibtex
 @inproceedings{a-tpt-iclr2026,
     title     = {A-TPT: Angular Diversity Calibration Properties for Test-Time Prompt Tuning of Vision-Language Models},
-    author  = {Ahamed, Shihab Aaqil and Thanthrige, Udaya SKP and Rodrigo, Ranga and Khan, Muhammad Haris},
+    author    = {Ahamed, Shihab Aaqil and Thanthrige, Udaya SKP and Rodrigo, Ranga and Khan, Muhammad Haris},
     booktitle = {International Conference on Learning Representations (ICLR)},
     year      = {2026},
     url       = {https://openreview.net/forum?id=VhlSBZebEw},
