@@ -192,12 +192,12 @@ Also we would like thank the authors of the [CoOp/CoCoOp](https://github.com/Kai
 If you find our work, this repository useful in your research, please consider giving a star ⭐ and citation.
 
 ```bibtex
-@inproceedings{a-tpt-iclr2026,
+@inproceedings{ahamed2026atpt,
     title     = {A-TPT: Angular Diversity Calibration Properties for Test-Time Prompt Tuning of Vision-Language Models},
     author    = {Ahamed, Shihab Aaqil and Thanthrige, Udaya SKP and Rodrigo, Ranga and Khan, Muhammad Haris},
-    booktitle = {International Conference on Learning Representations (ICLR)},
-    year      = {2026},
-    url       = {https://openreview.net/forum?id=VhlSBZebEw},
+   booktitle={The Fourteenth International Conference on Learning Representations},
+   year={2026},
+   url={https://openreview.net/forum?id=VhlSBZebEw}
 }
 ```
 
