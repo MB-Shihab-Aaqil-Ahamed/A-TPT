@@ -193,11 +193,11 @@ If you find our work, this repository useful in your research, please consider g
 
 ```bibtex
 @inproceedings{ahamed2026atpt,
-    title     = {A-TPT: Angular Diversity Calibration Properties for Test-Time Prompt Tuning of Vision-Language Models},
-    author    = {Ahamed, Shihab Aaqil and Thanthrige, Udaya SKP and Rodrigo, Ranga and Khan, Muhammad Haris},
-   booktitle  = {The Fourteenth International Conference on Learning Representations},
-   year       = {2026},
-   url        = {https://openreview.net/forum?id=VhlSBZebEw}
+   title     = {A-TPT: Angular Diversity Calibration Properties for Test-Time Prompt Tuning of Vision-Language Models},
+   author    = {Ahamed, Shihab Aaqil and Thanthrige, Udaya SKP and Rodrigo, Ranga and Khan, Muhammad Haris},
+   booktitle = {The Fourteenth International Conference on Learning Representations},
+   year      = {2026},
+   url       = {https://openreview.net/forum?id=VhlSBZebEw}
 }
 ```
 
