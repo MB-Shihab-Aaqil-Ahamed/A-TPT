@@ -266,7 +266,7 @@ def test_time_tuning(model, inputs, optimizer, scaler, args):
             min_ang_norm = -torch.acos(Wwt_constraint)
             min_ang_norm_mean = min_ang_norm.mean()
             
-            loss += (lambda_* min_ang_norm_mean)
+            loss += ((-lambda_) * min_ang_norm_mean)
 
         if args.run_type not in ['baseline', 'baseline_cocoop', 'baseline_coop', 'baseline_ts']:
             optimizer.zero_grad()
