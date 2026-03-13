@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data_root='put your dataset path here'
+data_root='/home/chathurya/TPT/data'
 testsets=$1
 #arch=RN50
 arch=ViT-B/16

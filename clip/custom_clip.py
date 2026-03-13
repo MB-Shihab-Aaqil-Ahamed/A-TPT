@@ -308,6 +308,7 @@ class ClipTestTimeTuning(nn.Module):
         text_features = torch.stack(text_features, dim=0)
 
         return torch.mean(text_features, dim=0)
+    
 
     def inference(self, image):
         with torch.no_grad():
@@ -315,21 +316,102 @@ class ClipTestTimeTuning(nn.Module):
 
         text_features = self.get_text_features()
         image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+
+        """
+
+        def _dist_along_slice(Xp, Xq, N, device):
+            thetas = torch.arctan2(Xq, Xp)
+
+            ix = torch.argsort(thetas)
+            invix = torch.empty_like(ix)
+            invix[ix] = torch.arange(N, device=device)
+
+            phis = 2 * math.pi * torch.arange(1, N+1, device=device) / N
+            phis -= math.pi + math.pi / N  # make zero-mean
+            phis = phis[invix]
+
+            thetas_star = torch.mean(thetas) + phis
+
+            return .5 * torch.sum(torch.square(thetas - thetas_star))
+    
+        def init_great_circle(d: int, dtype=None, device: str = None) -> Tuple[torch.Tensor, torch.Tensor]:
+            #linalg.qr is not supported in float16, use float32 and convert if needed
+            PQ = torch.randn(d, 2, dtype=torch.float32,device=device)
+
+            PQ, R = torch.linalg.qr(PQ)
+            PQ *= R.diagonal().sign()
+            p, q = PQ[:, 0], PQ[:, 1]
+
+            return p.to(dtype), q.to(dtype)
         
-        #[c-tpt] --------------------------------------------
-        if self.l2_norm_cal:
-            prompt_mean = text_features.mean(0)
-            feature_distance = text_features - prompt_mean
-            l2_norm = torch.linalg.norm(feature_distance, dim=-1)
-            l2_norm_mean = l2_norm.mean()
-            
+        """
+        
+        #[a-tpt] --------------------------------------------
+        if self.ang_norm_cal:
+            tau_ = 0.99999  
+                      
+            #W_ = F.normalize(text_features, p=2, dim=1)
+
+            #Wwt = torch.matmul(W_, W_.t())
+            #Wwt = Wwt - 2. * torch.diag(torch.diag(Wwt))
+            ####llloyds-------
+            X = text_features
+            d=X.size(-1)
+            n_samples=X.size(0)
+            device = X.device
+                    
+            #ang_norm_mean = -torch.acos(Wwt.max(dim=1)[0].clamp(-tau_, tau_)).mean()
+            samples = F.normalize(torch.randn(n_samples, 1, d, device=device), dim=-1) 
+            dist2 = torch.acos((samples @ X.T).clamp(-1+1e-7, 1-1e-7)) ** 2
+            ang_norm_mean = (torch.min(dist2, dim=-1)[0]).mean()
+            # print("ang_norm_mean:", ang_norm_mean)
+
             #for saving to csv file
-            self.l2_norm_mean = l2_norm_mean.item()
-            
+            self.ang_norm_mean = ang_norm_mean.item()
+
             #for training
-            self.l2_norm_mean_training = l2_norm_mean
-        
+            self.ang_norm_mean_training = ang_norm_mean
+            
+        #--------lloyds
+
+
+
+
+
+
+
         #-----------------------------------------------------
+            #X = text_features
+            #N, d = X.shape
+
+            #device = X.device
+
+            #p, q = init_great_circle(d, dtype=X.dtype, device=device)
+
+            #Xp = X @ p
+           # Xq = X @ q
+
+           # ang_norm_mean = _dist_along_slice(Xp, Xq, N, device)
+
+            #print("ang_norm_mean:", ang_norm_mean)
+            #____sliced
+
+            #for saving to csv file
+            #self.ang_norm_mean = ang_norm_mean.item()
+
+            #for training
+            #self.ang_norm_mean_training = ang_norm_mean
+
+            
+
+
+
+
+
+
+
+
+
 
         logit_scale = self.logit_scale.exp()
         logits = logit_scale * image_features @ text_features.t()

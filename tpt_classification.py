@@ -9,6 +9,7 @@ import numpy as np
 
 import torch
 import torch.nn.parallel
+import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
 import torch.optim
 import torch.utils.data
@@ -35,10 +36,96 @@ from data.imagenet_variants import thousand_k_to_200, imagenet_a_mask, imagenet_
 import ipdb
 import math
 import pickle
+import pandas as pd
+
+import os
+import matplotlib.pyplot as plt
 
 model_names = sorted(name for name in models.__dict__
     if name.islower() and not name.startswith("__")
     and callable(models.__dict__[name]))
+
+def ConfidenceHistogram(confidences, accuracies, n_bins=20, title=None):
+    n = len(confidences)
+    w = np.ones(n) / n  # Equal weight for each sample
+
+    # Create the histogram plot
+    plt.rcParams["font.family"] = "serif"
+    plt.figure(figsize=(6, 6))
+    plt.xlim(0,1)
+    plt.ylim(0,1)
+    plt.xticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0], ['0.0', '0.2', '0.4', '0.6', '0.8', '1.0'])
+    plt.yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0], ['0.0', '0.2', '0.4', '0.6', '0.8', '1.0'])
+    #plot grid
+    plt.grid(color='tab:grey', linestyle=(0, (1, 5)), linewidth=1,zorder=0)    
+    #plot histogram
+    plt.hist(confidences,n_bins,weights = w,color='b',range=(0.0,1.0),edgecolor = 'k')
+
+    #plot vertical dashed lines
+    acc = np.mean(accuracies)
+    conf = np.mean(confidences)                
+    plt.axvline(x=acc, color='tab:grey', linestyle='--', linewidth = 3)
+    plt.axvline(x=conf, color='tab:grey', linestyle='--', linewidth = 3)
+    if acc > conf:
+        plt.text(acc+0.03,0.9,'Accuracy',rotation=90,fontsize=11)
+        plt.text(conf-0.07,0.9,'Avg. Confidence',rotation=90, fontsize=11)
+    else:
+        plt.text(acc-0.07,0.9,'Accuracy',rotation=90,fontsize=11)
+        plt.text(conf+0.03,0.9,'Avg. Confidence',rotation=90, fontsize=11)
+
+    plt.ylabel('% of Samples',fontsize=13)
+    plt.xlabel('Confidence',fontsize=13)
+    plt.tight_layout()
+    if title is not None:
+        plt.title(title,fontsize=16)
+
+    # Save plot to 'plots' directory
+    if not os.path.exists('plots_1'):
+        os.makedirs('plots_1')
+
+    plot_filename = os.path.join('plots_1', f"confidence_histogram_{args.test_sets}.png")
+    plt.savefig(plot_filename)
+    print(f"plot saved to {plot_filename}")
+
+    return plt
+    
+def ReliabiltyDiagram(bin_acc, n_bins=20, title="None"):
+    
+    delta = 1.0 / n_bins
+    x = np.arange(0, 1, delta)
+    mid = np.linspace(delta / 2, 1 - delta / 2, n_bins)
+    error = np.abs(np.subtract(mid, bin_acc))
+
+    plt.rcParams["font.family"] = "serif"
+    #size and axis limits
+    plt.figure(figsize=(6,6))
+    plt.xlim(0,1)
+    plt.ylim(0,1)
+    #plot grid
+    plt.grid(color='tab:grey', linestyle=(0, (1, 5)), linewidth=1,zorder=0)
+    #plot bars and identity line
+    plt.bar(x, bin_acc, color = 'b', width=delta,align='edge',edgecolor = 'k',label='Outputs',zorder=5)
+    plt.bar(x, error, bottom=np.minimum(bin_acc,mid), color = 'mistyrose', alpha=0.5, width=delta,align='edge',edgecolor = 'r',hatch='///',label='Gap',zorder=10)
+    ident = [0.0, 1.0]
+    plt.plot(ident,ident,linestyle='--',color='tab:grey',zorder=15)
+    #labels and legend
+    plt.ylabel('Accuracy',fontsize=13)
+    plt.xlabel('Confidence',fontsize=13)
+    plt.xticks(np.arange(0, 1.1, 0.1))
+    plt.yticks(np.arange(0, 1.1, 0.1))
+    plt.legend(loc='upper left',framealpha=1.0,fontsize='medium')
+    if title is not None:
+        plt.title(title,fontsize=16)
+    plt.tight_layout()
+
+    if not os.path.exists('plots_1'):
+        os.makedirs('plots_1')
+    
+    plot_filename = os.path.join('plots_1', f"reliability_diagram_{args.test_sets}.png")
+    plt.savefig(plot_filename)
+    print(f"plot saved to {plot_filename}")
+
+    return plt
 
 def ECE_Loss(num_bins, predictions, confidences, correct):
     #ipdb.set_trace()
@@ -94,7 +181,11 @@ def Calculator(result_dict):
     print('acc: ', acc*100)
     print('ece: ', ece_data[0]*100)
           
-    return 
+    ReliabiltyDiagram(ece_data[1], n_bins=20, title=f"Reliability Diagram A-TPT-{args.test_sets}")
+
+    ConfidenceHistogram(list_max_confidence, list_correct, n_bins=20, title=f"Confidence Histogram A-TPT-{args.test_sets}")
+
+    return acc*100, ece_data[0]*100
 
 
 def select_confident_samples(logits, top):
@@ -152,12 +243,23 @@ def test_time_tuning(model, inputs, optimizer, scaler, args):
                 else:
                     output2 = model(inputs) 
 
-        if 'ctpt' in args.run_type:
+        if 'atpt' in args.run_type:
             if output == None and output2 == None:
                 single_output = model(args.image)
 
             lambda_ = args.lambda_term
-            loss += (-lambda_* model.l2_norm_mean_training)
+            tau_ = args.tau_term
+
+            W = model.get_text_features()
+
+            W_ = F.normalize(W, p=2, dim=1)
+            Wwt = torch.matmul(W_, W_.t())
+
+            Wwt = Wwt - 2. * torch.diag(torch.diag(Wwt))
+        
+            ang_norm_mean = -torch.acos(Wwt.max(dim=1)[0].clamp(-tau_, tau_)).mean()
+
+            loss += ((-lambda_) * ang_norm_mean)
 
         if args.run_type not in ['baseline', 'baseline_cocoop', 'baseline_coop', 'baseline_ts']:
             optimizer.zero_grad()
@@ -169,6 +271,26 @@ def test_time_tuning(model, inputs, optimizer, scaler, args):
 
     if args.cocoop:
         return pgen_ctx
+
+    # with torch.no_grad():
+    #     W = model.get_text_features()
+    #     W = F.normalize(W, p=2, dim=1)
+
+    #     Wwt = torch.matmul(W, W.T)
+    #     Wwt = Wwt - 2. * torch.diag(torch.diag(Wwt))
+
+    #     mean_Wwt = Wwt.mean(dim=1)
+
+    #     csv_path = f"mean_Wwt_{args.test_sets}_atpt.csv"
+
+    #     df = pd.DataFrame({
+    #         'Index': list(range(len(mean_Wwt))),
+    #         'MeanCosineSimilarity': mean_Wwt.cpu().numpy()
+    #     })
+
+    #     csv_path = f"mean_Wwt_{args.test_sets}_atpt.csv"
+    #     df.to_csv(csv_path, index=False)
+    #     print(f"Saved mean cosine similarities to {csv_path}")
 
     return
 
@@ -354,10 +476,10 @@ def test_time_adapt_eval(val_loader, model, model_state, optimizer, optim_state,
     #define a softmax layer
     softmax = torch.nn.Softmax(dim=1)
 
-    if 'ctpt' in args.run_type:
-        model.l2_norm_cal = True
+    if 'atpt' in args.run_type:
+        model.ang_norm_cal = True
     else:
-        model.l2_norm_cal = False
+        model.ang_norm_cal = False
 
     for i, (images, target) in enumerate(val_loader):
         assert args.gpu is not None
@@ -376,7 +498,7 @@ def test_time_adapt_eval(val_loader, model, model_state, optimizer, optim_state,
         if args.tpt:
             images = torch.cat(images, dim=0)
 
-        if 'ctpt' in args.run_type:
+        if 'atpt' in args.run_type:
             args.image = image
 
         # reset the tunable prompt to its initial state
@@ -473,22 +595,17 @@ if __name__ == '__main__':
 
     # added args for c-tpt --------------------------------
     parser.add_argument('--lambda_term' , type=float, default=0.0, help='lambda for c-tpt')
-    parser.add_argument('--run_type' , type=str, default='baseline_tpt', choices=['baseline', 'tpt', 'tpt_ctpt', 'tpt_ts'])
+    parser.add_argument('--tau_term' , type=float, default=0.0, help='constraint for angular diversity')
+    parser.add_argument('--run_type' , type=str, default='baseline_tpt', choices=['baseline', 'tpt', 'tpt_atpt', 'tpt_ts'])
     parser.add_argument('--two_step', action='store_true', default=False, help='two step training')
     parser.add_argument('--I_augmix', action='store_true', default=False, help='augmix for I')
     # ------------------------------------------------
 
     args = parser.parse_args()
     
-    if 'ctpt' not in args.run_type:
+    if 'atpt' not in args.run_type:
         args.lambda_term = 0.0
 
     result_dict = {'max_confidence': [], 'prediction': [], 'label': []}
     main(args, result_dict)
     acc, ece = Calculator(result_dict)
-
-
-
-
-
-
